@@ -30,6 +30,7 @@ router.get('/:id', (req, res) => {
                 res.status(404).json({ message: 'No user found with this id' });
                 return;
             }
+            res.json(dbUserData)
         })
         .catch(err => {
             console.log(err);
@@ -89,6 +90,7 @@ router.delete("/:id", (req, res) => {
                 res.status(400).json({ message: 'No user found with this id' });
                 return;
             }
+            res.json({ message: `User with ID ${req.params.id} was deleted from the database` })
         })
         .catch(err => {
             console.log(err);
